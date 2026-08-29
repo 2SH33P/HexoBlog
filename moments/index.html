@@ -287,7 +287,8 @@
     btn.addEventListener('click', function () {
       var text = btn.closest('.moment').querySelector('.moment-text');
       var isOpen = btn.getAttribute('data-open') === 'true';
-      text.classList.toggle('clamped', !isOpen);
+      // 当前已展开 → 折叠(加 clamped)；当前已折叠 → 展开(去 clamped)
+      text.classList.toggle('clamped', isOpen);
       btn.textContent = isOpen ? '展开全文' : '收起';
       btn.setAttribute('data-open', isOpen ? 'false' : 'true');
     });
